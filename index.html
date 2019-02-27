@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lottery Predictor</title>
+
+    <style>
+        html{margin: 0;
+             background-color: #ffffff;}
+
+        .container{
+            margin: 0 auto;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        button{
+            width: 300px;
+            height: 50px;
+            border-radius: 10px;
+            border: 0;
+            background-color: #424242;
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Lotery Numbers</h1>
+        <button onclick="myfunction()">POWERBALL</button>
+        <div class="resultado">
+
+        </div>
+
+    </div>
+    
+
+
+
+    <script>
+        function myfunction(){
+            var combinations = [];
+
+            for (var i = 0; i <5; i++) {
+
+                var power =  Math.floor(Math.random()*69);
+                combinations.push(power);
+                
+            }
+
+            var ball =  Math.floor(Math.random()*29); 
+            console.log(combinations + ' POWERBALL = '+ ball);
+            getElementById('resultado').innerHTML="hello";
+                }
+    
+    </script>
+</body>
+</html>
