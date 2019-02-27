@@ -5,45 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lottery Predictor</title>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed" rel="stylesheet">
+
 
     <style>
-        html{margin: 0;
-             background-color: #ffffff;
-         letter-spacing: .1rem;}
+        html{
+            margin: 0;
+            color: #000;
+            letter-spacing: .1rem;
+            background-color: #00675a;
+            font-family: 'Fira Sans Condensed', sans-serif;
+
+     }
+
+     
+
+         h1{
+            margin: 0;
+            padding: 10px;
+            margin-bottom: 0px;
+            color: #F3EF8D;
+         }
 
         .container{
+            width: 30%;
+            height: 30%;
+            background-color: #fff;
             margin: 0 auto;
             text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 10px;
 
         }
         button{
-            width: 300px;
+            width: 100%;
             height: 50px;
-            border-radius: 10px;
+            font-family: 'Fira Sans Condensed', sans-serif;
+
             border: 0;
-            background-color: #424242;
-            color: #fff;
+            background-color: #fbe7ce;
+            color: #000;
             font-size: 1rem;
             letter-spacing: .1rem;
         }
-        #resultado{
-            margin-top: 1rem;
+        button:hover{
             
+
+            background-color: #F6F6F5;
+            color: #000;
             font-size: 1rem;
+            letter-spacing: .1rem;
         }
+        button:active {
+              background-color: #F6F6F5;
+              box-shadow: 0 2px #666;
+              transform: translateY(4px);
+        }
+
+        #resultado{
+            margin-top: 0rem;
+            padding-bottom: 30px;
+            font-size: 1.2rem;
+        }
+        #resultado2{
+            margin-top: 1rem;
+            padding-bottom: 30px;
+            font-size: 1.2rem;
+        }
+        .dot {
+          height: 25px;
+          width: 25px;;
+          background-color: red;
+          border-radius: 50%;
+          display: inline-block;
+        }
+        .top{
+            background-color: #ee9e2d;
+        }
+        .bottom{
+
+        }
+
+        @media only screen and (max-width: 600px) {
+        html,body,button {
+            letter-spacing: 0rem;
+
+        }
+    }
+
+         @media only screen and (max-width: 600px) {
+        .container {
+            width: 80%;
+
+        }
+    }
+
+
+    
         
     </style>
 
 </head>
 <body>
     <div class="container">
-        <h1>Lotery Numbers</h1>
-        <button onclick="myfunction()">POWERBALL</button>
-        <div id="resultado">
-
+        <div class="top">
+            <h1>Lotery Numbers</h1>
         </div>
-
+        <button onclick="myfunction()">POWERBALL</button><br><br>
+        <div id="resultado">
+        </div>
+        <button onclick="myfunction2()">LOTTO</button>
+        <div id="resultado2">
+        </div>
+        <div class="bottom">
+        <button onclick="cleardivs()">DELETE and CLEAR</button>
+        </div>
     </div>
     
 
@@ -56,20 +131,43 @@
             
             for (var i = 0; i <5; i++) {
 
-                var power =  Math.floor(Math.random()*69);
+                var power =  Math.floor((Math.random()*69)+1);
                 combinations.push(power);
                 
             }
 
-            var ball =  Math.floor(Math.random()*29); 
+            var ball =  Math.floor((Math.random()*29)+1); 
 
             
 
-            document.getElementById('resultado').innerHTML = combinations + '<br>Power Ball - ' + ball+'<br>Click again for more combinations!';
+            document.getElementById('resultado').innerHTML = combinations + '<br>Power Ball - ' + '<span class="dot">'+ball+ '</span>' +'<br>Click again for more combinations!';
 
                 }
                 
-    
+        function myfunction2(){
+            var combinations = [];
+            
+            
+            for (var i = 0; i <6; i++) {
+
+                var power =  Math.floor((Math.random()*53)+1);
+                combinations.push(power);
+                
+            }
+
+            
+
+            
+
+            document.getElementById('resultado2').innerHTML = combinations +'<br>Click again for more combinations!';
+
+                }
+
+        function cleardivs(){
+            document.getElementById('resultado2').innerHTML='';
+            document.getElementById('resultado').innerHTML='';
+
+        }    
     </script>
 </body>
 </html>
