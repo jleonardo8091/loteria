@@ -8,7 +8,8 @@
 
     <style>
         html{margin: 0;
-             background-color: #ffffff;}
+             background-color: #ffffff;
+         letter-spacing: .1rem;}
 
         .container{
             margin: 0 auto;
@@ -24,6 +25,12 @@
             background-color: #424242;
             color: #fff;
             font-size: 1rem;
+            letter-spacing: .1rem;
+        }
+        #resultado{
+            margin-top: 1rem;
+            
+            font-size: 1rem;
         }
         
     </style>
@@ -33,7 +40,7 @@
     <div class="container">
         <h1>Lotery Numbers</h1>
         <button onclick="myfunction()">POWERBALL</button>
-        <div class="resultado">
+        <div id="resultado">
 
         </div>
 
@@ -45,7 +52,8 @@
     <script>
         function myfunction(){
             var combinations = [];
-
+            
+            
             for (var i = 0; i <5; i++) {
 
                 var power =  Math.floor(Math.random()*69);
@@ -54,9 +62,13 @@
             }
 
             var ball =  Math.floor(Math.random()*29); 
-            console.log(combinations + ' POWERBALL = '+ ball);
-            getElementById('resultado').innerHTML="hello";
+
+            
+
+            document.getElementById('resultado').innerHTML = combinations + '<br>Power Ball - ' + ball+'<br>Click again for more combinations!';
+
                 }
+                
     
     </script>
 </body>
